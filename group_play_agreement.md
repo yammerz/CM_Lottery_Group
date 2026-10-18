@@ -6,7 +6,7 @@
 
 <hr style="width: 100%; padding-bottom: 15px; margin-top: 15px; visibility: hidden;" />
 
-<a href="readme.md">&lt;&lt;&lt; Back</a>
+<a href="/">&lt;&lt;&lt; Back</a>
 
 <STRONG>GROUP PLAY AGREEMENT</STRONG><br><br>
 

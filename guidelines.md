@@ -1,7 +1,7 @@
 ## Legal Information and Guidelines
 
 <!-- link back to readme -->
-[ <<< Back](group_play_agreement.md)
+[ <<< Back](group_play_agreement.html)
 
 ### Guidelines
 <div id="guidelines">
