@@ -8,6 +8,8 @@
 
 <a href="/">&lt;&lt;&lt; Back</a>
 
+<br>
+
 <STRONG>GROUP PLAY AGREEMENT</STRONG><br><br>
 
 <strong>Name of group:</strong> CM Lottery Group<br>
