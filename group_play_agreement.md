@@ -17,7 +17,7 @@
 <hr style="width: 100%; padding-bottom: 15px; margin-top: 15px; visibility: hidden;" />
 
 <!-- link back to readme -->
-[ <<< Back](readme.md)
+<a href="readme.md">&lt;&lt;&lt; Back</a>
 
 <STRONG>GROUP PLAY AGREEMENT</STRONG>
 
@@ -25,19 +25,19 @@
 <!-- make Name of group stand out -->
 <strong>Name of group:</strong> CM Lottery Group
 
-<strong>[Trustee](guidelines.md#trustee):</strong> Shane Y
+<a href="guidelines.md#trustee" style="font-weight: bold;">Trustee</a>: Shane Y
 
-<strong>[Share per group member](guidelines.md#prize-money):</strong> contribution / total contributions per one draw (e.g., $6 / $120) = 1/20th
+<a href="guidelines.md#prize-money" style="font-weight: bold;">Share per group member</a>: contribution / total contributions per one draw (e.g., $6 / $120) = 1/20th
 
-<strong>[Cut-off date for contributions](guidelines.md#deadline):</strong> First day shift (Wednesday) day set
+<a href="guidelines.md#deadline" style="font-weight: bold;">Cut-off date for contributions</a>: First day shift (Wednesday) day set
     
-<strong>[Game](guidelines.md#game):</strong> Lotto Max plus Extras
+<a href="guidelines.md#game" style="font-weight: bold;">Game</a>: Lotto Max plus Extras
 
-<strong>[Draw dates](calendar.html):</strong> ongoing after the cut-off date for contributions
+<a href="calendar.html" style="font-weight: bold;">Draw dates</a>: ongoing after the cut-off date for contributions
 
 <strong><a target="_blank" href="https://www.playnow.com/lottery/lotto-max/">Jackpot amount</a>:</strong> To be determined per draw
 
-<strong>[Winnings distribution](guidelines.md#prize-money):</strong> Proportional to each member's share in the group as per "Share per group member" above.
+<a href="guidelines.md#prize-money" style="font-weight: bold;">Winnings distribution</a>: Proportional to each member's share in the group as per "Share per group member" above.
 
 
 
@@ -87,50 +87,17 @@ By making your contribution, you agree to abide by the rules and guidelines of t
 ***I will be keeping a copy of full name and phone number offline.
 
 <!-- link back to readme -->
-[ <<< Back](readme.md)
+<a href="readme.md">&lt;&lt;&lt; Back</a>
 
 
 </div>
 
 <script>
-function sortTable(columnIndex) {
-    const table = document.querySelector("table");
-    const tbody = table.querySelector("tbody");
-    const rows = Array.from(tbody.querySelectorAll("tr"));
-    
-    // Determine sort direction (toggle between ascending and descending)
-    const currentDirection = table.dataset.sortDir === "asc" ? "desc" : "asc";
-    table.dataset.sortDir = currentDirection;
-
-    // Sort rows
-    rows.sort((rowA, rowB) => {
-        const cellA = rowA.children[columnIndex].textContent.trim();
-        const cellB = rowB.children[columnIndex].textContent.trim();
-
-        // Check if values are numeric
-        const numA = Number(cellA);
-        const numB = Number(cellB);
-
-        if (!isNaN(numA) && !isNaN(numB)) {
-            return currentDirection === "asc" ? numA - numB : numB - numA;
-        }
-
-        // Fallback to alphabetical sort
-        return currentDirection === "asc" 
-            ? cellA.localeCompare(cellB) 
-            : cellB.localeCompare(cellA);
-    });
-
-    // Re-append sorted rows to the tbody
-    rows.forEach(row => tbody.appendChild(row));
-}
-
-
 
 //make div password protected
 const password = "shane";
 const div = document.querySelector("div");
-div.style.display = "none";
+div.style.display = "block";
 const userPassword = prompt("Name of the trustee for this group?");
 
 if (userPassword === password) {
