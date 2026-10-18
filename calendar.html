@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar 2026–2027</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Print Styles */
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+      .calendar-grid-container {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 1.5rem !important;
+      }
+      .month-card {
+        box-shadow: none !important;
+        border: 1px solid #cbd5e1 !important;
+        break-inside: avoid;
+      }
+    }
+
+    /* Custom scrollbar for quick selector */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-200">
+
+  <!-- Main Container -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- Header & Controls Bar -->
+    <header class="mb-8 no-print">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-6">
+        <div>
+          <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            2026 – 2027 Calendar
+          </h1>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+            October 2026 &ndash; December 2027 (15 Months)
+          </p>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="flex flex-wrap items-center gap-3">
+          <!-- View Toggle -->
+          <div class="inline-flex rounded-lg bg-slate-200 dark:bg-slate-800 p-1 border border-slate-300 dark:border-slate-700">
+            <button id="grid-view-btn" onclick="setViewMode('grid')" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-all bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm">
+              <i data-lucide="layout-grid" class="w-4 h-4"></i>
+              <span>Grid View</span>
+            </button>
+            <button id="list-view-btn" onclick="setViewMode('list')" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+              <i data-lucide="list" class="w-4 h-4"></i>
+              <span>Full List</span>
+            </button>
+          </div>
+
+          <!-- Dark Mode Toggle -->
+          <button onclick="toggleDarkMode()" class="p-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition" title="Toggle Dark/Light Mode">
+            <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+            <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+          </button>
+
+          <!-- Print Button -->
+          <button onclick="window.print()" class="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm transition">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Print / PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Month Navigation Bar -->
+      <nav class="mt-4 flex items-center gap-2 overflow-x-auto no-scrollbar py-2">
+        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mr-2 shrink-0">Jump To:</span>
+        <div id="quick-jump-container" class="flex gap-2">
+          <!-- Quick jump buttons inserted dynamically -->
+        </div>
+      </nav>
+    </header>
+
+    <!-- Legend & Today Highlight Indicator -->
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-600 dark:text-slate-400 no-print bg-white dark:bg-slate-800 p-3 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm">
+      <div class="flex items-center gap-4 flex-wrap">
+        <span class="flex items-center gap-1.5">
+          <span class="w-3 h-3 rounded-full bg-indigo-600 inline-block"></span> Today / Selected
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> Contributions Due
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span> Lotto Max Draw
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="w-3 h-3 rounded-full bg-rose-100 dark:bg-rose-950/50 border border-rose-300 dark:border-rose-800 inline-block"></span> Weekend (Sat/Sun)
+        </span>
+        <span class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-amber-500 inline-block"></span> Has Note
+        </span>
+      </div>
+      <div class="text-slate-500 dark:text-slate-400 font-medium">
+        Click any day to add or view personal notes
+      </div>
+    </div>
+
+    <!-- Calendar Container -->
+    <main id="calendar-container" class="calendar-grid-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-300">
+      <!-- Month tables rendered here via JavaScript -->
+    </main>
+  </div>
+
+  <!-- Note Modal -->
+  <div id="note-modal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 no-print">
+    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 w-full max-w-md overflow-hidden transform transition-all">
+      <div class="p-4 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center bg-slate-50 dark:bg-slate-800/50">
+        <h3 id="modal-date-title" class="font-semibold text-slate-900 dark:text-white">Day Note</h3>
+        <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="p-4">
+        <label for="note-text" class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-2">Personal Notes / Reminders</label>
+        <textarea id="note-text" rows="4" class="w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white p-3 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Write event or note details here..."></textarea>
+      </div>
+      <div class="p-4 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center bg-slate-50 dark:bg-slate-800/50">
+        <button onclick="deleteNote()" id="delete-note-btn" class="px-3 py-1.5 text-xs font-medium text-rose-600 hover:text-rose-700 dark:text-rose-400 dark:hover:text-rose-300 hidden">
+          Delete Note
+        </button>
+        <div class="flex gap-2 ml-auto">
+          <button onclick="closeModal()" class="px-4 py-2 text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg">Cancel</button>
+          <button onclick="saveNote()" class="px-4 py-2 text-xs font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm">Save Note</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Configuration & State
+    const startYear = 2026;
+    const startMonth = 9; // 0-indexed: 9 = October
+    const endYear = 2027;
+    const endMonth = 11; // 0-indexed: 11 = December
+
+    // Hardcoded Recurring "Contributions Due" Dates (Every 4 weeks starting Oct 28, 2026)
+    const hardcodedEvents = {
+      "2026-10-28": "Contributions Due",
+      "2026-11-25": "Contributions Due",
+      "2026-12-23": "Contributions Due",
+      "2027-01-20": "Contributions Due",
+      "2027-02-17": "Contributions Due",
+      "2027-03-17": "Contributions Due",
+      "2027-04-14": "Contributions Due",
+      "2027-05-12": "Contributions Due",
+      "2027-06-09": "Contributions Due",
+      "2027-07-07": "Contributions Due",
+      "2027-08-04": "Contributions Due",
+      "2027-09-01": "Contributions Due",
+      "2027-09-29": "Contributions Due",
+      "2027-10-27": "Contributions Due",
+      "2027-11-24": "Contributions Due",
+      "2027-12-22": "Contributions Due"
+    };
+
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    let viewMode = 'grid'; // 'grid' or 'list'
+    let selectedDateKey = null;
+    let notes = {};
+
+    // Load saved notes from LocalStorage
+    try {
+      const savedNotes = localStorage.getItem('calendar_notes_2026_2027');
+      if (savedNotes) notes = JSON.parse(savedNotes);
+    } catch(e) {
+      console.warn('LocalStorage access restricted or unavailable');
+    }
+
+    // Initialize Application
+    window.addEventListener('DOMContentLoaded', () => {
+      buildQuickJumpNav();
+      renderCalendar();
+      lucide.createIcons();
+      highlightToday();
+    });
+
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle('dark');
+    }
+
+    // View Mode Handler
+    function setViewMode(mode) {
+      viewMode = mode;
+      const container = document.getElementById('calendar-container');
+      const gridBtn = document.getElementById('grid-view-btn');
+      const listBtn = document.getElementById('list-view-btn');
+
+      if (mode === 'grid') {
+        container.className = 'calendar-grid-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-300';
+        gridBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-all bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm';
+        listBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
+      } else {
+        container.className = 'calendar-grid-container grid grid-cols-1 gap-6 transition-all duration-300 max-w-3xl mx-auto';
+        listBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-all bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm';
+        gridBtn.className = 'flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
+      }
+    }
+
+    // Build Quick Navigation Bar
+    function buildQuickJumpNav() {
+      const nav = document.getElementById('quick-jump-container');
+      nav.innerHTML = '';
+
+      let curYear = startYear;
+      let curMonth = startMonth;
+
+      while (curYear < endYear || (curYear === endYear && curMonth <= endMonth)) {
+        const monthId = `month-${curYear}-${curMonth}`;
+        const shortName = `${monthNames[curMonth].substring(0, 3)} '${String(curYear).slice(-2)}`;
+        
+        const btn = document.createElement('button');
+        btn.className = 'px-2.5 py-1 text-xs font-medium rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-indigo-50 hover:text-indigo-600 dark:hover:bg-slate-700 transition shrink-0';
+        btn.textContent = shortName;
+        btn.onclick = () => {
+          const el = document.getElementById(monthId);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        };
+        nav.appendChild(btn);
+
+        curMonth++;
+        if (curMonth > 11) {
+          curMonth = 0;
+          curYear++;
+        }
+      }
+    }
+
+    // Render All Months
+    function renderCalendar() {
+      const container = document.getElementById('calendar-container');
+      container.innerHTML = '';
+
+      let curYear = startYear;
+      let curMonth = startMonth;
+
+      while (curYear < endYear || (curYear === endYear && curMonth <= endMonth)) {
+        const monthCard = createMonthTable(curYear, curMonth);
+        container.appendChild(monthCard);
+
+        curMonth++;
+        if (curMonth > 11) {
+          curMonth = 0;
+          curYear++;
+        }
+      }
+    }
+
+    // Create Single Month Table Component
+    function createMonthTable(year, month) {
+      const card = document.createElement('div');
+      card.id = `month-${year}-${month}`;
+      card.className = 'month-card bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col justify-between transition hover:shadow-md';
+
+      // Days logic
+      const firstDay = new Date(year, month, 1).getDay(); // 0 = Sun
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      // Month Header
+      let html = `
+        <div class="bg-slate-100 dark:bg-slate-800/80 px-4 py-3 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center">
+          <h2 class="text-base font-bold text-slate-800 dark:text-slate-100">
+            ${monthNames[month]} <span class="text-indigo-600 dark:text-indigo-400 font-semibold ml-1">${year}</span>
+          </h2>
+          <span class="text-xs font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider">${monthNames[month].substring(0, 3)}</span>
+        </div>
+        <div class="p-3 flex-grow">
+          <table class="w-full text-center border-collapse">
+            <thead>
+              <tr>
+      `;
+
+      // Day of Week Headers
+      dayNames.forEach((day, index) => {
+        const isWeekend = index === 0 || index === 6;
+        html += `
+          <th class="py-1.5 text-xs font-semibold ${isWeekend ? 'text-rose-500 dark:text-rose-400' : 'text-slate-400 dark:text-slate-500'}">
+            ${day}
+          </th>
+        `;
+      });
+
+      html += `
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-slate-800/50">
+      `;
+
+      // Calendar Days Grid
+      let date = 1;
+      const totalRows = Math.ceil((firstDay + daysInMonth) / 7);
+
+      for (let i = 0; i < totalRows; i++) {
+        html += `<tr>`;
+        for (let j = 0; j < 7; j++) {
+          if (i === 0 && j < firstDay) {
+            // Empty cell before month start
+            html += `<td class="p-1"></td>`;
+          } else if (date > daysInMonth) {
+            // Empty cell after month end
+            html += `<td class="p-1"></td>`;
+          } else {
+            const dateKey = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+            const isWeekend = j === 0 || j === 6;
+            const hasNote = notes[dateKey] && notes[dateKey].trim() !== '';
+            const dueEvent = hardcodedEvents[dateKey];
+            const drawEvent = drawDates[dateKey];
+            const event = dueEvent || drawEvent;
+
+            html += `
+              <td class="p-0.5 relative group">
+                <button onclick="openNoteModal('${dateKey}')" id="day-${dateKey}" class="w-full min-h-[44px] flex flex-col items-center justify-between p-1 rounded-lg text-xs font-medium transition-all relative ${
+                  drawEvent
+                    ? 'bg-rose-50 dark:bg-rose-950/30 text-rose-800 dark:text-rose-200 hover:bg-rose-100 dark:hover:bg-rose-900/50'
+                    : dueEvent
+                    ? 'bg-emerald-50/80 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-200 hover:bg-emerald-100 dark:hover:bg-emerald-900/50'
+                    : isWeekend
+                    ? 'bg-rose-50/60 dark:bg-rose-950/20 text-rose-700 dark:text-rose-300 hover:bg-rose-100 dark:hover:bg-rose-900/40'
+                    : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700/60'
+                }">
+                  <span class="font-semibold text-xs">${date}</span>
+                  ${
+                    event
+                      ? `<span class="mt-0.5 px-1 py-0.2 text-[9px] leading-tight font-bold ${drawEvent ? 'bg-rose-600 dark:bg-rose-500' : 'bg-emerald-600 dark:bg-emerald-500'} text-white rounded truncate max-w-full" title="${event}">${drawEvent ? 'Draw' : 'Due'}</span>`
+                      : ''
+                  }
+                  ${hasNote ? `<span class="w-1.5 h-1.5 bg-amber-500 rounded-full mt-0.5"></span>` : ''}
+                </button>
+              </td>
+            `;
+            date++;
+          }
+        }
+        html += `</tr>`;
+      }
+
+      html += `
+            </tbody>
+          </table>
+        </div>
+      `;
+
+      card.innerHTML = html;
+      return card;
+    }
+
+    // Highlight Current Date if it falls within the calendar period
+    function highlightToday() {
+      const today = new Date();
+      const dateKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+      const el = document.getElementById(`day-${dateKey}`);
+      if (el) {
+        el.className += ' ring-2 ring-indigo-600 dark:ring-indigo-400 font-bold bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-300';
+      }
+    }
+
+    // Modal Operations
+    function openNoteModal(dateKey) {
+      selectedDateKey = dateKey;
+      const modal = document.getElementById('note-modal');
+      const title = document.getElementById('modal-date-title');
+      const textarea = document.getElementById('note-text');
+      const deleteBtn = document.getElementById('delete-note-btn');
+
+      // Format title date nicely
+      const parts = dateKey.split('-');
+      const d = new Date(parts[0], parts[1] - 1, parts[2]);
+      
+      const dueEvent = hardcodedEvents[dateKey];
+      const drawEvent = drawDates[dateKey];
+      const dateString = d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      
+      const eventBadge = drawEvent
+        ? `<span class="ml-2 text-xs font-semibold px-2 py-0.5 bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-200 rounded-full">${drawEvent}</span>`
+        : dueEvent
+        ? `<span class="ml-2 text-xs font-semibold px-2 py-0.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200 rounded-full">${dueEvent}</span>`
+        : '';
+      title.innerHTML = `${dateString} ${eventBadge}`;
+
+      textarea.value = notes[dateKey] || '';
+      if (notes[dateKey]) {
+        deleteBtn.classList.remove('hidden');
+      } else {
+        deleteBtn.classList.add('hidden');
+      }
+
+      modal.classList.remove('hidden');
+      textarea.focus();
+    }
+
+    function closeModal() {
+      document.getElementById('note-modal').classList.add('hidden');
+      selectedDateKey = null;
+    }
+
+    function saveNote() {
+      if (!selectedDateKey) return;
+      const text = document.getElementById('note-text').value.trim();
+      
+      if (text) {
+        notes[selectedDateKey] = text;
+      } else {
+        delete notes[selectedDateKey];
+      }
+
+      try {
+        localStorage.setItem('calendar_notes_2026_2027', JSON.stringify(notes));
+      } catch(e) {
+        console.warn('Failed to save to localStorage');
+      }
+
+      renderCalendar();
+      highlightToday();
+      closeModal();
+    }
+
+    function deleteNote() {
+      if (!selectedDateKey) return;
+      delete notes[selectedDateKey];
+
+      try {
+        localStorage.setItem('calendar_notes_2026_2027', JSON.stringify(notes));
+      } catch(e) {
+        console.warn('Failed to save to localStorage');
+      }
+
+      renderCalendar();
+      highlightToday();
+      closeModal();
+    }
+
+
+    const drawDates = {};
+    const date = new Date(2026, 9, 30);
+    const lastDate = new Date(2027, 11, 31);
+
+    while (date <= lastDate) {
+      if (date.getDay() === 2 || date.getDay() === 5) {
+        const dateKey = [
+          date.getFullYear(),
+          String(date.getMonth() + 1).padStart(2, '0'),
+          String(date.getDate()).padStart(2, '0')
+        ].join('-');
+
+        drawDates[dateKey] = "Lotto Max Draw";
+      }
+
+      date.setDate(date.getDate() + 1);
+    }
+
+
+
+
+  </script>
+</body>
+</html>
