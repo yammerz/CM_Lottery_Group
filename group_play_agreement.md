@@ -130,7 +130,7 @@ function sortTable(columnIndex) {
 //make div password protected
 const password = "shane";
 const div = document.querySelector("div");
-div.style.display = "block";
+div.style.display = "none";
 const userPassword = prompt("Name of the trustee for this group?");
 
 if (userPassword === password) {
