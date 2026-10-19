@@ -29,6 +29,14 @@
             <li>Example: If the group has collected $120 in contributions for a draw and each Lotto Max play costs $6, the trustee can purchase 18 plays 6x18 = $108, with 12 of the 18 tickets playing the Lotto Max Extra game.</li>
         </ul>
     </li>
+    <li>Lotto Max Prizes:
+        <ul>
+            <li>Up to 90 Million</li>
+            <li>Up to 20 x Maxmillions</li>
+            <li>Up to 90 x $100,000</li>
+            <li>Extra up to $500,000</li>
+        </ul>
+    </li>
     <li><a target="_blank" href="https://www.playnow.com/lottery/lotto-max/">Lotto Max More Information</a></li>
     </ul>
 </div>
@@ -78,6 +86,7 @@
     <li>Example 2: a new member has joined the group while prize money is in play;
     we have $120 + $6 from the new member of base contributions and $200 of prize money. The new member receives 6/320 = 1/53.33 of the total winnings.</li>
     </li>
+    <li>Small amounts of prize money will be used on the next draw, up until the amount is sufficient to form a full contribution for a member. Example: if there are 10 members and the prize money meets or exceeds $480 then the group can discuss what to do, but my suggestion is to use that money as everyone's next contribution for the following month.</li>
     </ul>
 </div>
 
