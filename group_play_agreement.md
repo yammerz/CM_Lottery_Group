@@ -45,7 +45,7 @@
     <tr><td>2</td>    <td>Dave G</td>         <td>n/a</td><td>contribution</td><td class="phone">###-###-6181</td><td>$</td><td></td></tr>
     <tr><td>3</td>    <td>Frank</td><td>n/a</td><td>contribution</td><td class="phone">###-###-1896</td><td>$</td><td></td></tr>
     <tr><td>4</td>    <td>Jacob L</td><td>Hedley</td><td>contribution</td><td class="phone">###-###-0930</td><td>$</td><td></td></tr>
-    <tr><td>5</td>    <td>Jeremy</td><td>Jeremy</td><td>contribution</td><td class="phone">###-###-9877</td><td>$</td><td></td></tr>
+    <tr><td>5</td>    <td>Jeremy</td><td>Princeton</td><td>contribution</td><td class="phone">###-###-9877</td><td>$</td><td></td></tr>
     <tr><td>6</td>    <td>Jessica</td><td>Hedley</td><td>contribution</td><td class="phone">###-###-5144</td><td>$</td><td></td></tr>
     <tr><td>7</td>    <td>Nolan</td><td>Hedley</td><td>contribution</td><td class="phone">###-###-7526</td><td>$</td><td></td></tr>
     <tr><td>8</td>    <td>Patrick</td><td>n/a</td><td>contribution</td><td class="phone">###-###-2444</td><td>$</td><td></td></tr>
