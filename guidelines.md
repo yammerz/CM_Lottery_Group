@@ -1,3 +1,5 @@
+<img src="https://www.playnow.com/resources/images/lottery/banners/lmax-2.0/lmax-2.0-logo-small.png" alt="LMAX 2.0 Logo" style="float: right; margin-left: 15px; margin-bottom: 15px;background: #84BD00;" />
+
 # Information and Guidelines
 
 ### Guidelines
