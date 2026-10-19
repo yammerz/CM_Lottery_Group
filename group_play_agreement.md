@@ -1,9 +1,12 @@
-<div>
-
-<h1 style="float: left; margin-left: 15px; margin: 15px;">Group Play Agreement</h1>
-
 <img src="https://www.playnow.com/resources/images/lottery/banners/lmax-2.0/lmax-2.0-logo-small.png" alt="LMAX 2.0 Logo" style="float: right; margin-left: 15px; margin-bottom: 15px;background: #84BD00;" />
 
+<!-- add horizontal line full width and add padding below and make not visible -->
+<hr style="width: 100%; padding-bottom: 15px; margin-top: 15px; visibility: hidden;" />
+
+# Group Play Agreement
+
+
+<div>
 <hr style="width: 100%; padding-bottom: 15px; margin-top: 15px; visibility: hidden;" />
 
 <br>
