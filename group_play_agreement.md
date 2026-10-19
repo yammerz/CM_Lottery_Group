@@ -8,8 +8,6 @@
 
 <br>
 
-<STRONG>GROUP PLAY AGREEMENT</STRONG><br><br>
-
 <strong>Name of group:</strong> CM Lottery Group<br>
 <a href="guidelines.html#trustee" style="font-weight: bold;">Trustee</a>: Shane Y<br>
 <a href="guidelines.html#prize-money" style="font-weight: bold;">Share per group member</a>: contribution / total contributions per one draw (e.g., $6 / $120) = 1/20th<br>
