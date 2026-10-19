@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calendar 2026–2027</title>
+  <title>Draws and Deadlines</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Lucide Icons -->
@@ -59,7 +59,7 @@
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-6">
         <div>
           <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-            2026 – 2027 Calendar
+            Draws and Deadlines 2026 – 2027
           </h1>
           <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
             October 2026 &ndash; December 2027 (15 Months)
@@ -67,7 +67,7 @@
         </div>
 
         <!-- Action Controls -->
-        <div class="flex flex-wrap items-center gap-3">
+        <div class="hidden">
           <!-- View Toggle -->
           <div class="inline-flex rounded-lg bg-slate-200 dark:bg-slate-800 p-1 border border-slate-300 dark:border-slate-700">
             <button id="grid-view-btn" onclick="setViewMode('grid')" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-all bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm">
@@ -95,7 +95,7 @@
       </div>
 
       <!-- Quick Month Navigation Bar -->
-      <nav class="mt-4 flex items-center gap-2 overflow-x-auto no-scrollbar py-2">
+      <nav class="hidden">
         <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mr-2 shrink-0">Jump To:</span>
         <div id="quick-jump-container" class="flex gap-2">
           <!-- Quick jump buttons inserted dynamically -->
