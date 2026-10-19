@@ -1,4 +1,4 @@
- ## Information and Guidelines
+# Information and Guidelines
 
 ### Guidelines
 
