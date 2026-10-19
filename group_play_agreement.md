@@ -70,18 +70,18 @@ const pins = document.querySelectorAll(".phone");
 // Password protection logic
 // get password from phones
 const password = Array.from(pins).map(phone => phone.textContent.slice(-4));
+const storedPassword = sessionStorage.getItem("userPassword");
 
 
 const containerDiv = document.querySelector("div");
 containerDiv.style.display = "block"; // Hide by default until verified
-const userPassword = prompt("What are the last four digits of your phone number?");
+const userPassword = storedPassword ? storedPassword : prompt("What are the last four digits of your phone number?");
 
 //store the user password for later verification
 sessionStorage.setItem("userPassword", userPassword);
 
-const storedPassword = sessionStorage.getItem("userPassword");
 
-password.push(storedPassword);
+
 
 if (password.includes(userPassword)) {
     containerDiv.style.display = "block";
