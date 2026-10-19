@@ -20,39 +20,39 @@
 <a href="guidelines.html#prize-money" style="font-weight: bold;">Winnings distribution</a>: Proportional to each member's share in the group as per "Share per group member" above.
 
 <style>
-    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px;}
     th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
     th { background-color: none; cursor: pointer; user-select: none; }
     th::after { content: ""; font-size: 0.8em; color: #aaa; }
 </style>
 
-<table border="1" style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+<table border="1" style="width: 100%; border-collapse: collapse; margin-top: 15px; display: table;">
 <caption><strong>Current group members.</strong> If you have paid your contribution and submitted your information, please ensure your information is accurately reflected here. If not contact me.</caption>
   <thead>
-    <tr style="cursor: pointer;">
-      <th onclick="sortTable(0)">#</th>
-      <th onclick="sortTable(1)">Full name</th>
-      <th onclick="sortTable(2)">City</th>
-      <th onclick="sortTable(3)">Signature</th>
-      <th onclick="sortTable(4)">Phone#</th>
-      <th onclick="sortTable(5)">$</th>
-      <th onclick="sortTable(6)">Type</th>
+    <tr>
+      <th>#</th>
+      <th>Full name</th>
+      <th>City</th>
+      <th>Signature</th>
+      <th>Phone#</th>
+      <th>$</th>
+      <th>Type</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td>1</td><td>Darlington</td><td>n/a</td><td>contribution</td><td class="phone">###-###-2418</td><td>$</td><td></td></tr>
-    <tr><td>2</td><td>Dave G</td><td>n/a</td><td>contribution</td><td class="phone">###-###-6181</td><td>$</td><td></td></tr>
-    <tr><td>3</td><td>Frank</td><td>n/a</td><td>contribution</td><td class="phone">###-###-1896</td><td>$</td><td></td></tr>
-    <tr><td>4</td><td>Jacob L</td><td>Hedley</td><td>contribution</td><td class="phone">###-###-0930</td><td>$</td><td></td></tr>
-    <tr><td>5</td><td>Jeremy</td><td>Jeremy</td><td>contribution</td><td class="phone">###-###-9877</td><td>$</td><td></td></tr>
-    <tr><td>6</td><td>Jessica</td><td>Hedley</td><td>contribution</td><td class="phone">###-###-5144</td><td>$</td><td></td></tr>
-    <tr><td>7</td><td>Nolan</td><td>Hedley</td><td>contribution</td><td class="phone">###-###-7526</td><td>$</td><td></td></tr>
-    <tr><td>8</td><td>Patrick</td><td>n/a</td><td>contribution</td><td class="phone">###-###-2444</td><td>$</td><td></td></tr>
-    <tr><td>9</td><td>Shane</td><td>Cawston</td><td>contribution</td><td class="phone">###-###-1405</td><td>$48</td><td>cash</td></tr>
-    <tr><td>10</td><td>Stu</td><td>n/a</td><td>contribution</td><td class="phone">###-###-1266</td><td>$</td><td></td></tr>
-    <tr><td>11</td><td>Tasha</td><td>n/a</td><td>contribution</td><td class="phone">###-###-0162</td><td>$</td><td></td></tr>
-    <tr><td>12</td><td>Tony</td><td>n/a</td><td>contribution</td><td>###-###-3057</td><td>$</td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td><td></td><td>$48</td><td></td></tr>
+    <tr><td>1</td>    <td>Darlington</td>     <td>n/a</td><td>contribution</td><td class="phone">###-###-2418</td><td>$</td><td></td></tr>
+    <tr><td>2</td>    <td>Dave G</td>         <td>n/a</td><td>contribution</td><td class="phone">###-###-6181</td><td>$</td><td></td></tr>
+    <tr><td>3</td>    <td>Frank</td><td>n/a</td><td>contribution</td><td class="phone">###-###-1896</td><td>$</td><td></td></tr>
+    <tr><td>4</td>    <td>Jacob L</td><td>Hedley</td><td>contribution</td><td class="phone">###-###-0930</td><td>$</td><td></td></tr>
+    <tr><td>5</td>    <td>Jeremy</td><td>Jeremy</td><td>contribution</td><td class="phone">###-###-9877</td><td>$</td><td></td></tr>
+    <tr><td>6</td>    <td>Jessica</td><td>Hedley</td><td>contribution</td><td class="phone">###-###-5144</td><td>$</td><td></td></tr>
+    <tr><td>7</td>    <td>Nolan</td><td>Hedley</td><td>contribution</td><td class="phone">###-###-7526</td><td>$</td><td></td></tr>
+    <tr><td>8</td>    <td>Patrick</td><td>n/a</td><td>contribution</td><td class="phone">###-###-2444</td><td>$</td><td></td></tr>
+    <tr><td>9</td>    <td>Shane</td><td>Cawston</td><td>contribution</td><td class="phone">###-###-1405</td><td>$48</td><td>cash</td></tr>
+    <tr><td>10</td>   <td>Stu</td><td>n/a</td><td>contribution</td><td class="phone">###-###-1266</td><td>$</td><td></td></tr>
+    <tr><td>11</td>   <td>Tasha</td><td>n/a</td><td>contribution</td><td class="phone">###-###-0162</td><td>$</td><td></td></tr>
+    <tr><td>12</td>   <td>Tony</td><td>n/a</td><td>contribution</td><td class="phone">###-###-3057</td><td>$</td><td></td></tr>
+    <tr><td></td>     <td></td><td></td><td></td><td></td><td>$48</td><td></td></tr>
   </tbody>
 </table>
 
