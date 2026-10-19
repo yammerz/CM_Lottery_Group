@@ -62,7 +62,7 @@
 </div>
 
 
-### Prize Money
+### Prize Money (Winnings Distribution or Share)
 
 <div id="prize-money">
     <ul>
