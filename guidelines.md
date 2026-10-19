@@ -89,9 +89,8 @@
 
 ### Trustee
 <div id="trustee">
-The group shall appoint a trustee who will be responsible for managing the group's funds and ensuring compliance with all legal requirements.
-
-Trustee: Shane Yamamoto <br>
+The group shall appoint a trustee who will be responsible for managing the group's funds and ensuring compliance with all legal requirements.<br>
+<strong>Trustee:</strong> Shane Yamamoto <br>
     <strong>The trustee shall:</strong>
     <ul>
         <li>Be responsible for managing the group's funds.</li>
