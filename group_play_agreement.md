@@ -19,7 +19,12 @@
 <strong><a target="_blank" href="https://www.playnow.com/lottery/lotto-max/">Jackpot amount</a>:</strong> To be determined per draw<br>
 <a href="guidelines.html#prize-money" style="font-weight: bold;">Winnings distribution</a>: Proportional to each member's share in the group as per "Share per group member" above.
 
-
+<style>
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+    th { background-color: none; cursor: pointer; user-select: none; }
+    th::after { content: ""; font-size: 0.8em; color: #aaa; }
+</style>
 
 <table border="1" style="width: 100%; border-collapse: collapse; margin-top: 15px;">
 <caption><strong>Current group members.</strong> If you have paid your contribution and submitted your information, please ensure your information is accurately reflected here. If not contact me.</caption>
@@ -60,15 +65,23 @@
 
 <script>
 
-const phones = document.querySelectorAll(".phone");
+const pins = document.querySelectorAll(".phone");
 
 // Password protection logic
 // get password from phones
-const password = Array.from(phones).map(phone => phone.textContent.slice(-4));
+const password = Array.from(pins).map(phone => phone.textContent.slice(-4));
+
 
 const containerDiv = document.querySelector("div");
 containerDiv.style.display = "block"; // Hide by default until verified
 const userPassword = prompt("What are the last four digits of your phone number?");
+
+//store the user password for later verification
+sessionStorage.setItem("userPassword", userPassword);
+
+const storedPassword = sessionStorage.getItem("userPassword");
+
+password.push(storedPassword);
 
 if (password.includes(userPassword)) {
     containerDiv.style.display = "block";

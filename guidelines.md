@@ -1,6 +1,4 @@
- # Information and Guidelines
-
-<!-- link back to readme -->
+ ## Information and Guidelines
 
 ### Guidelines
 
