@@ -5,10 +5,7 @@
 
 # CM Lottery Group
 
-<!-- link to group play agreement -->
-[Group Play Agreement](group_play_agreement.md)
-
-[Group Sheet](https://docs.google.com/spreadsheets/d/1PTlnDuExKIRgStTJ9iGWfPo8aGYYezQnjQwqIwoPUI0/edit?usp=sharing)
+[Group Play Agreement](https://docs.google.com/spreadsheets/d/1PTlnDuExKIRgStTJ9iGWfPo8aGYYezQnjQwqIwoPUI0/edit?usp=sharing)
 
 <!-- link to guidelines -->
 [Information and Guidelines](guidelines.md)
