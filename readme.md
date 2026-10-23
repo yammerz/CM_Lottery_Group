@@ -5,27 +5,6 @@
 
 # CM Lottery Group
 
-[Group Play Agreement](https://docs.google.com/spreadsheets/d/1rUYd_rlwTygu5tOAJFbsxis2s1SIEe0kLxCXPkD9nR4/edit?usp=sharing) ***REMEMBER TO BOOKMARK THIS LINK
-
-<!-- link to guidelines -->
-[Information and Guidelines](guidelines.md)
-
-[Contributions due](calendar.html)
-
-[See tickets](tickets/)
+Go to [Google Docs](https://drive.google.com/drive/folders/1hefnXGrmsOzwJKM8tvX2u89Gy908vQL-) for complete group play information ***REMEMBER TO BOOKMARK THIS LINK
 
 
-### Document examples from BCLC 
-The above &uparrow; Group Play Agreement will serve as both the agreements below.
-
-<!-- link to group prize agreement -->
-[Group Prize Agreement Form](group_prize_agreement_form.pdf) No action required
-
-<!-- link to group play agreement form -->
-[Group Play Agreement Form](group_play_agreement_form.pdf) No action required
-
-*Note: these documents are the official docs that are supplied but we will use for a reference only.* 
-** Your information submitted and contributions made will act as a binding record for your participation in the CM Lottery Group and will be accepted as your signature on the agreements. **
-
-
-Trustee: Shane Y

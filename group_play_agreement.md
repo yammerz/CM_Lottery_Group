@@ -1,1 +1,1 @@
-Replaced this page with [Google sheets](https://docs.google.com/spreadsheets/d/1rUYd_rlwTygu5tOAJFbsxis2s1SIEe0kLxCXPkD9nR4/edit?usp=sharing) ***REMEMBER TO BOOKMARK THIS LINK
+Go to [Google Docs](https://drive.google.com/drive/folders/1hefnXGrmsOzwJKM8tvX2u89Gy908vQL-) for complete group play information ***REMEMBER TO BOOKMARK THIS LINK
